@@ -6,9 +6,12 @@ const app = express();
 const dns = require("dns");
 const urlParser = require("url");
 
+// Basic Configuration
+const PORT = process.env.PORT;
+
 // Mongodb Operations
 const { MongoClient } = require("mongodb");
-const client = new MongoClient(MONGO_URI);
+const client = new MongoClient(process.env.MONGO_URI);
 const db = client.db("urlshortener");
 const urls = db.collection("urls");
 
